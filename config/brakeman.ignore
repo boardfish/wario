@@ -1,0 +1,26 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 105,
+      "fingerprint": "351efd8652aaa6fd2a34c89a36a0dfa4b1f278586113b9c553200f1f2b967072",
+      "check_name": "PermitAttributes",
+      "message": "Potentially dangerous key allowed for mass assignment",
+      "file": "app/controllers/monzo_hook_receiver_controller.rb",
+      "line": 13,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.require(:data).permit(:account_id, :amount, :created, :currency, :description, :id, :category, :is_load, :settled, :merchant => ([:created, :group_id, :id, :logo, :emoji, :name, :category, { :address => ([:address, :city, :country, :latitude, :longitude, :postcode, :region]) }]))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "MonzoHookReceiverController",
+        "method": "transaction_params"
+      },
+      "user_input": ":account_id",
+      "confidence": "High",
+      "note": "These all come from Monzo and are set to the record metadata field"
+    }
+  ],
+  "updated": "2020-08-29 15:26:34 +0000",
+  "brakeman_version": "4.9.0"
+}
