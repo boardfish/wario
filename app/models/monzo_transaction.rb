@@ -18,23 +18,23 @@ class MonzoTransaction < ApplicationRecord
   end
 
   def airtable_update(record)
-    record["Monzo ID"] = monzo_id
-    record["Description"] = metadata["description"]
-    record["Amount"] = amount
-    record["Created"] = created
+    record['Monzo ID'] = monzo_id
+    record['Description'] = metadata['description']
+    record['Amount'] = amount
+    record['Created'] = created
     record.save
   end
 
   def airtable_create
     transactions_table.create(
-      "Monzo ID" => monzo_id,
-      "Description" => metadata["description"],
-      "Amount" => amount,
-      "Created" => created
+      'Monzo ID' => monzo_id,
+      'Description' => metadata['description'],
+      'Amount' => amount,
+      'Created' => created
     )
   end
 
   def transactions_table
-    Airrecord.table(ENV.fetch('AIRTABLE_API_KEY'), ENV.fetch('AIRTABLE_BASE'), "Transactions")
+    Airrecord.table(ENV.fetch('AIRTABLE_API_KEY'), ENV.fetch('AIRTABLE_BASE'), 'Transactions')
   end
 end

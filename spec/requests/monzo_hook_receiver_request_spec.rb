@@ -5,13 +5,13 @@ require 'webmock/rspec'
 require 'vcr'
 
 VCR.configure do |config|
-  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.cassette_library_dir = 'fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.filter_sensitive_data('<AIRTABLE_API_KEY>') { ENV.fetch('AIRTABLE_API_KEY') }
 end
 
 RSpec.describe 'MonzoHookReceivers', type: :request do
-  around { |example| VCR.use_cassette("airtable", record: :new_episodes, &example) }
+  around { |example| VCR.use_cassette('airtable', record: :new_episodes, &example) }
 
   describe 'POST /transaction' do
     context 'with correct data' do
