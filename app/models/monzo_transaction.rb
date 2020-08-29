@@ -1,4 +1,6 @@
 # Cached Monzo transaction
 class MonzoTransaction < ApplicationRecord
-  store_accessor :metadata, :id, :amount
+  include ActiveRecord::Store
+  store_accessor :metadata, :amount, :created
+  store_accessor :metadata, :id, prefix: :monzo
 end
