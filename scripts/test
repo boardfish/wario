@@ -23,4 +23,5 @@ case $key in
 esac
 done
 set -- "${POSITIONAL_PARAMS[@]}" # restore positional parameters
+bundle exec rails db:setup
 bundle exec rspec $@

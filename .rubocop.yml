@@ -1,1 +1,10 @@
 inherit_from: .rubocop_todo.yml
+AllCops:
+    Exclude:
+        - db/**/*
+        - config/**/*
+        - bin/**/*
+Style/Documentation:
+    Exclude:
+        - app/mailers/application_mailer.rb
+        - app/models/application_record.rb
