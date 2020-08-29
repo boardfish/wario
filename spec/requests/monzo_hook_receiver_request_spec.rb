@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'MonzoHookReceivers', type: :request do
   describe 'GET /transaction' do
     context 'with correct data' do
-      subject(:request) { post '/monzo_hook_receiver/transaction', params: data, headers: { 'CONTENT_TYPE' => 'application/json' } }
+      subject(:request) do
+        post '/monzo_hook_receiver/transaction', params: data, headers: { 'CONTENT_TYPE' => 'application/json' }
+      end
       let(:data) { file_fixture('monzo_webhook_data.json').read }
 
       it 'returns http success' do

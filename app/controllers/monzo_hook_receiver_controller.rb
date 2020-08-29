@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Receiver for Monzo webhook
 class MonzoHookReceiverController < ApplicationController
   def transaction

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Cached Monzo transaction
 class MonzoTransaction < ApplicationRecord
   include ActiveRecord::Store
