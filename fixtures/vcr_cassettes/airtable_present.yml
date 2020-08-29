@@ -1,0 +1,188 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions?filterByFormula=%7BMonzo%20ID%7D%20=%20%27tx_00008zjky19HyFLAzlUk7t%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <AIRTABLE_API_KEY>
+      User-Agent:
+      - Airrecord/1.0.5
+      X-Api-Version:
+      - 0.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '30'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with
+      Access-Control-Allow-Methods:
+      - DELETE,GET,OPTIONS,PATCH,POST,PUT
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 29 Aug 2020 17:38:02 GMT
+      Etag:
+      - W/"1ab-+Oayor2czqX+ARLLFqYOM/RAoyc"
+      Server:
+      - Tengine
+      Set-Cookie:
+      - brw=brwiVFwhcaPUuTJsP; path=/; expires=Sun, 29 Aug 2021 17:38:02 GMT; domain=.airtable.com;
+        samesite=none; secure; httponly
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      Content-Length:
+      - '427'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"records":[{"id":"reclUwbMrt1XZDvbE","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
+        Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:37:24.000Z"},{"id":"recp6MmMFNJ0BGdm8","fields":{"Monzo
+        ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:37:03.000Z"}]}'
+  recorded_at: Sat, 29 Aug 2020 17:38:03 GMT
+- request:
+    method: get
+    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions?filterByFormula=%7BMonzo%20ID%7D%20=%20%27tx_00008zjky19HyFLAzlUk7t%27
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <AIRTABLE_API_KEY>
+      User-Agent:
+      - Airrecord/1.0.5
+      X-Api-Version:
+      - 0.1.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '30'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Headers:
+      - authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with
+      Access-Control-Allow-Methods:
+      - DELETE,GET,OPTIONS,PATCH,POST,PUT
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 29 Aug 2020 17:40:26 GMT
+      Etag:
+      - W/"1ab-+Oayor2czqX+ARLLFqYOM/RAoyc"
+      Server:
+      - Tengine
+      Set-Cookie:
+      - brw=brw9YoebZIkxx2s2t; path=/; expires=Sun, 29 Aug 2021 17:40:25 GMT; domain=.airtable.com;
+        samesite=none; secure; httponly
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      Content-Length:
+      - '427'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"records":[{"id":"reclUwbMrt1XZDvbE","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
+        Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:37:24.000Z"},{"id":"recp6MmMFNJ0BGdm8","fields":{"Monzo
+        ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:37:03.000Z"}]}'
+  recorded_at: Sat, 29 Aug 2020 17:40:26 GMT
+- request:
+    method: post
+    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions
+    body:
+      encoding: UTF-8
+      string: '{"fields":{"id":"recp6MmMFNJ0BGdm8","Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
+        Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"}}'
+    headers:
+      Authorization:
+      - Bearer <AIRTABLE_API_KEY>
+      User-Agent:
+      - Airrecord/1.0.5
+      X-Api-Version:
+      - 0.1.0
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '30'
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Access-Control-Allow-Headers:
+      - authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with
+      Access-Control-Allow-Methods:
+      - DELETE,GET,OPTIONS,PATCH,POST,PUT
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 29 Aug 2020 17:43:08 GMT
+      Etag:
+      - W/"4e-NWL1CCk7FdYvMfs5T6rXQR+ET9Y"
+      Server:
+      - Tengine
+      Set-Cookie:
+      - brw=brw8w3IDlB3Y2Rej8; path=/; expires=Sun, 29 Aug 2021 17:43:08 GMT; domain=.airtable.com;
+        samesite=none; secure; httponly
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      Content-Length:
+      - '78'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"error":{"type":"UNKNOWN_FIELD_NAME","message":"Unknown field name:
+        \"id\""}}'
+  recorded_at: Sat, 29 Aug 2020 17:43:08 GMT
+recorded_with: VCR 6.0.0
