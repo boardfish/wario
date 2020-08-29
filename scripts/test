@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "${0%/*}/.."
+
+echo "Running tests"
+POSITIONAL_PARAMS=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+# Reinterpret arguments
+case $key in
+    --fail-fast)
+    POSITIONAL_PARAMS+=("--fail-fast")
+    shift # next argument
+    ;;
+    *)    # unknown option
+    POSITIONAL_PARAMS+=("$1")
+    shift # next argument
+    ;;
+esac
+done
+set -- "${POSITIONAL_PARAMS[@]}" # restore positional parameters
+bundle exec rspec $@

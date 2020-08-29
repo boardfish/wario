@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "${0%/*}/.."
+
+POSITIONAL_PARAMS=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+# Reinterpret arguments
+case $key in
+    --autoformat)
+    POSITIONAL_PARAMS+=("--auto-correct")
+    shift # next argument
+    ;;
+    --files)
+    POSITIONAL_PARAMS+=("-f fi")
+    shift # next argument
+    ;;
+    *)    # unknown option
+    POSITIONAL_PARAMS+=("$1")
+    shift # next argument
+    ;;
+esac
+done
+set -- "${POSITIONAL_PARAMS[@]}" # restore positional parameters
+bundle exec rubocop $@

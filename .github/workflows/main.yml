@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - base
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    name: Continuous integration
+    services:
+      bundle_cache:
+        image: busybox
+        volumes:
+          - /github/raise-cache/vendor/bundle:/bundle_cache
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Fetch repository basename
+        run: echo "::set-output name=name::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")"
+        id: repository_details
+        shell: bash
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            /home/runner/work/${{ steps.repository_details.outputs.name }}/bundle_cache
+            **/node_modules
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Continuous integration step (scripts/cibuild)
+        uses: whoan/docker-build-with-cache-action@v5
+        with:
+          username: "${{ github.actor }}"
+          password: "${{ secrets.GITHUB_TOKEN }}"
+          registry: docker.pkg.github.com
+          image_name: "${{ steps.repository_details.outputs.name }}"
+          push_image_and_stages: docker run --workdir /github/workspace -v /home/runner/work/${{ steps.repository_details.outputs.name }}/${{ steps.repository_details.outputs.name }}:/github/workspace -v /home/runner/work/${{ steps.repository_details.outputs.name }}/bundle_cache:/bundle_cache my_awesome_image:latest scripts/cibuild

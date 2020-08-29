@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+  web:
+    build: .
+    command: "bin/rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/usr/src/app
+      - bundle_cache:/bundle_cache
+    tmpfs: /usr/src/app/tmp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  bundle_cache:
+    image: busybox
+    volumes:
+      - bundle_cache:/bundle_cache
+  mail:
+    image: marcopas/docker-mailslurper
+    ports:
+      - "2500:2500"
+      - "8080:8080"
+      - "8085:8085"
+volumes:
+  bundle_cache:

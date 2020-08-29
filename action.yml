@@ -1,0 +1,16 @@
+# action.yml
+name: 'Essentials'
+description: 'Runs Scripts to Rule Them All in the repo.'
+author: Simon Fish <si@mon.fish>
+inputs:
+  command:
+    description: 'Command to run inside the container'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
+branding:
+  icon: 'edit'
+  color: 'blue'
