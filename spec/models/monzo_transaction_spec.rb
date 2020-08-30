@@ -17,6 +17,7 @@ RSpec.describe MonzoTransaction, type: :model do
     ).all(filter: "{Monzo ID} = '#{data['id']}'").first
   end
 
+  # Mock airtable record.
   class AirtableRecord < OpenStruct
     def save
       Faraday.patch(
