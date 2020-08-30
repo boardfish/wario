@@ -18,7 +18,10 @@ class Transaction < Airrecord::Table
 end
 
 RSpec.describe MonzoTransaction, type: :model do
-  before { ENV['AIRTABLE_API_KEY'] = 'AIRTABLE_API_KEY' }
+  before do
+    ENV['AIRTABLE_API_KEY'] = 'AIRTABLE_API_KEY'
+    ENV['AIRTABLE_BASE'] = 'appnzIqiDdK0Kew4f'
+  end
 
   describe '#upsert_into_airtable' do
     let(:data) { JSON.parse(file_fixture('monzo_webhook_data.json').read)['data'] }

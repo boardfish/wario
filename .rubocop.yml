@@ -8,3 +8,6 @@ Style/Documentation:
     Exclude:
         - app/mailers/application_mailer.rb
         - app/models/application_record.rb
+Metrics/BlockLength:
+    Exclude:
+        - spec/requests/monzo_hook_receiver_request_spec.rb
