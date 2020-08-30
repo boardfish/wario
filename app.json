@@ -1,0 +1,9 @@
+{
+  "name": "Wario",
+  "description": "A hook from Monzo to Airtabl",
+  "repository": "https://github.com/boardfish/wario",
+  "keywords": ["ruby", "rails", "monzo", "airtable"],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate load_templates"
+  }
+}
