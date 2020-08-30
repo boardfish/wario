@@ -216,6 +216,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   brakeman
   byebug
+  faraday
   listen (~> 3.2)
   pg
   puma (~> 4.1)

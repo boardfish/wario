@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions?filterByFormula=%7BMonzo%20ID%7D%20=%20%22tx_00008zjky19HyFLAzlUk7t%22
+    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions?filterByFormula=%7BMonzo%20ID%7D%20=%20%27tx_00008zjky19HyFLAzlUk7t%27
     body:
       encoding: US-ASCII
       string: ''
@@ -35,13 +35,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sat, 29 Aug 2020 17:26:24 GMT
+      - Sun, 30 Aug 2020 19:26:05 GMT
       Etag:
-      - W/"1ab-MlwPt1YGCPBe+MAQyhYtcnrvUOg"
+      - W/"1c9-QRdHpitM/NHXbhHo0VKdInSK+6k"
       Server:
       - Tengine
       Set-Cookie:
-      - brw=brwuXDx13sGT3zucn; path=/; expires=Sun, 29 Aug 2021 17:26:24 GMT; domain=.airtable.com;
+      - brw=brwSCrVXR8HoWG26K; path=/; expires=Mon, 30 Aug 2021 19:26:05 GMT; domain=.airtable.com;
         samesite=none; secure; httponly
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
@@ -52,138 +52,16 @@ http_interactions:
       X-Frame-Options:
       - DENY
       Content-Length:
-      - '427'
+      - '457'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"records":[{"id":"recPoNyor6KeE21aV","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
-        Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:26:24.000Z"},{"id":"recjk29e4DdsGrxYH","fields":{"Monzo
-        ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:25:49.000Z"}]}'
-  recorded_at: Sat, 29 Aug 2020 17:26:24 GMT
-- request:
-    method: get
-    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions?filterByFormula=%7BMonzo%20ID%7D%20=%20%22tx_00008zjky19HyFLAzlUk7t%22
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Authorization:
-      - Bearer <AIRTABLE_API_KEY>
-      User-Agent:
-      - Airrecord/1.0.5
-      X-Api-Version:
-      - 0.1.0
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      Connection:
-      - keep-alive
-      Keep-Alive:
-      - '30'
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Access-Control-Allow-Headers:
-      - authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with
-      Access-Control-Allow-Methods:
-      - DELETE,GET,OPTIONS,PATCH,POST,PUT
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Sat, 29 Aug 2020 17:26:25 GMT
-      Etag:
-      - W/"1ab-MlwPt1YGCPBe+MAQyhYtcnrvUOg"
-      Server:
-      - Tengine
-      Set-Cookie:
-      - brw=brweP8R22gbgTH90w; path=/; expires=Sun, 29 Aug 2021 17:26:25 GMT; domain=.airtable.com;
-        samesite=none; secure; httponly
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-      Content-Length:
-      - '427'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: '{"records":[{"id":"recPoNyor6KeE21aV","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
-        Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:26:24.000Z"},{"id":"recjk29e4DdsGrxYH","fields":{"Monzo
-        ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:25:49.000Z"}]}'
-  recorded_at: Sat, 29 Aug 2020 17:26:25 GMT
-- request:
-    method: patch
-    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions/recPoNyor6KeE21aV
-    body:
-      encoding: UTF-8
-      string: '{"fields":{"Monzo ID":["tx_00008zjky19HyFLAzlUk7t","Ozone Coffee Roasters",-350,"2015-09-04T14:28:40.000Z"]}}'
-    headers:
-      Authorization:
-      - Bearer <AIRTABLE_API_KEY>
-      User-Agent:
-      - Airrecord/1.0.5
-      X-Api-Version:
-      - 0.1.0
-      Content-Type:
-      - application/json
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      Connection:
-      - keep-alive
-      Keep-Alive:
-      - '30'
-  response:
-    status:
-      code: 422
-      message: Unprocessable Entity
-    headers:
-      Access-Control-Allow-Headers:
-      - authorization,content-length,content-type,user-agent,x-airtable-application-id,x-airtable-user-agent,x-api-version,x-requested-with
-      Access-Control-Allow-Methods:
-      - DELETE,GET,OPTIONS,PATCH,POST,PUT
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Type:
-      - application/json; charset=utf-8
-      Date:
-      - Sat, 29 Aug 2020 17:26:25 GMT
-      Etag:
-      - W/"6d-WJC1PKGqwcF/Bt6QwsA7txbD5A4"
-      Server:
-      - Tengine
-      Set-Cookie:
-      - brw=brwRxUWA2O3RVSPdg; path=/; expires=Sun, 29 Aug 2021 17:26:25 GMT; domain=.airtable.com;
-        samesite=none; secure; httponly
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-      Content-Length:
-      - '109'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: '{"error":{"type":"INVALID_VALUE_FOR_COLUMN","message":"Field \"Monzo
-        ID\" cannot accept the provided value"}}'
-  recorded_at: Sat, 29 Aug 2020 17:26:25 GMT
+      string: '{"records":[{"id":"recdONyH5iTcSKsz6","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
+        Coffee Roasters","Amount":-350,"Month":["recZtH0Ot7PjORaao"],"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-30T19:26:03.000Z"},{"id":"recp6MmMFNJ0BGdm8","fields":{"Amount":-350,"Monzo
+        ID":"tx_00008zjky19HyFLAzlUk7t","Created":"2015-09-04T14:28:40.000Z","Description":"Ozone
+        Coffee Roasters"},"createdTime":"2020-08-29T17:37:03.000Z"}]}'
+  recorded_at: Sun, 30 Aug 2020 19:26:05 GMT
 - request:
     method: get
     uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions?filterByFormula=%7BMonzo%20ID%7D%20=%20%27tx_00008zjky19HyFLAzlUk7t%27
@@ -219,13 +97,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sat, 29 Aug 2020 17:45:07 GMT
+      - Sun, 30 Aug 2020 19:26:05 GMT
       Etag:
-      - W/"dc-TEalaLoiYSVN0sdJixmR9Vngxok"
+      - W/"1c9-QRdHpitM/NHXbhHo0VKdInSK+6k"
       Server:
       - Tengine
       Set-Cookie:
-      - brw=brw4zxkET9h40tRjU; path=/; expires=Sun, 29 Aug 2021 17:45:07 GMT; domain=.airtable.com;
+      - brw=brwuMrsHL0KmD4anQ; path=/; expires=Mon, 30 Aug 2021 19:26:05 GMT; domain=.airtable.com;
         samesite=none; secure; httponly
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
@@ -236,17 +114,19 @@ http_interactions:
       X-Frame-Options:
       - DENY
       Content-Length:
-      - '220'
+      - '457'
       Connection:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"records":[{"id":"recp6MmMFNJ0BGdm8","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
-        Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:37:03.000Z"}]}'
-  recorded_at: Sat, 29 Aug 2020 17:45:07 GMT
+      string: '{"records":[{"id":"recdONyH5iTcSKsz6","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
+        Coffee Roasters","Amount":-350,"Month":["recZtH0Ot7PjORaao"],"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-30T19:26:03.000Z"},{"id":"recp6MmMFNJ0BGdm8","fields":{"Amount":-350,"Monzo
+        ID":"tx_00008zjky19HyFLAzlUk7t","Created":"2015-09-04T14:28:40.000Z","Description":"Ozone
+        Coffee Roasters"},"createdTime":"2020-08-29T17:37:03.000Z"}]}'
+  recorded_at: Sun, 30 Aug 2020 19:26:05 GMT
 - request:
     method: get
-    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Transactions?filterByFormula=%7BMonzo%20ID%7D%20=%20%27tx_00008zjky19HyFLAzlUk7t%27
+    uri: https://api.airtable.com/v0/appnzIqiDdK0Kew4f/Totals?filterByFormula=%7BName%7D%20=%20%27September%202015%27
     body:
       encoding: US-ASCII
       string: ''
@@ -279,13 +159,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sat, 29 Aug 2020 17:45:08 GMT
+      - Sun, 30 Aug 2020 19:26:05 GMT
       Etag:
-      - W/"dc-TEalaLoiYSVN0sdJixmR9Vngxok"
+      - W/"dc-ggKi0DImYcLic1nv34XzgLDq0No"
       Server:
       - Tengine
       Set-Cookie:
-      - brw=brwTx83mfxPluWXuj; path=/; expires=Sun, 29 Aug 2021 17:45:08 GMT; domain=.airtable.com;
+      - brw=brwTVI75U8lWRyZCo; path=/; expires=Mon, 30 Aug 2021 19:26:05 GMT; domain=.airtable.com;
         samesite=none; secure; httponly
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
@@ -301,7 +181,6 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"records":[{"id":"recp6MmMFNJ0BGdm8","fields":{"Monzo ID":"tx_00008zjky19HyFLAzlUk7t","Description":"Ozone
-        Coffee Roasters","Amount":-350,"Created":"2015-09-04T14:28:40.000Z"},"createdTime":"2020-08-29T17:37:03.000Z"}]}'
-  recorded_at: Sat, 29 Aug 2020 17:45:08 GMT
+      string: '{"records":[{"id":"recZtH0Ot7PjORaao","fields":{"Name":"September 2015","Spend":-350,"Overrides":0,"Total":0,"Month":["recBbSMme0aMauDch"],"Transactions":["recdONyH5iTcSKsz6"]},"createdTime":"2020-08-30T19:15:16.000Z"}]}'
+  recorded_at: Sun, 30 Aug 2020 19:26:05 GMT
 recorded_with: VCR 6.0.0
