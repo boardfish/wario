@@ -22,6 +22,7 @@ class MonzoTransaction < ApplicationRecord
     record['Description'] = metadata['description']
     record['Amount'] = amount
     record['Created'] = created
+    record['Month'] = [get_airtable_month_total_record(DateTime.parse(created))]
     record.save
   end
 
@@ -30,11 +31,20 @@ class MonzoTransaction < ApplicationRecord
       'Monzo ID' => monzo_id,
       'Description' => metadata['description'],
       'Amount' => amount,
-      'Created' => created
+      'Created' => created,
+      'Month' => [get_airtable_month_total_record(DateTime.parse(created))]
     )
+  end
+
+  def get_airtable_month_total_record(date)
+    months_table.all(filter: "{Name} = '#{date.strftime('%B %Y')}'").first.id
   end
 
   def transactions_table
     Airrecord.table(ENV.fetch('AIRTABLE_API_KEY'), ENV.fetch('AIRTABLE_BASE'), 'Transactions')
+  end
+
+  def months_table
+    Airrecord.table(ENV.fetch('AIRTABLE_API_KEY'), ENV.fetch('AIRTABLE_BASE'), 'Totals')
   end
 end

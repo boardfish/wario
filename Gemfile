@@ -33,8 +33,11 @@ group :development, :test do
   gem 'brakeman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faraday'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'simplecov'
   gem 'vcr'
   gem 'webmock'
