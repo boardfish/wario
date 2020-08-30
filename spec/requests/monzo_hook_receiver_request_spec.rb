@@ -11,6 +11,7 @@ VCR.configure do |config|
 end
 
 RSpec.describe 'MonzoHookReceivers', type: :request do
+  before { ENV['AIRTABLE_API_KEY'] = 'AIRTABLE_API_KEY' }
   around { |example| VCR.use_cassette('airtable', record: :new_episodes, &example) }
 
   describe 'POST /transaction' do
