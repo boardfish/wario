@@ -15,6 +15,7 @@ RSpec.describe 'MonzoHookReceivers', type: :request do
     ENV['AIRTABLE_API_KEY'] = 'AIRTABLE_API_KEY'
     ENV['AIRTABLE_BASE'] = 'appnzIqiDdK0Kew4f'
   end
+
   around { |example| VCR.use_cassette('airtable', record: :new_episodes, &example) }
 
   describe 'POST /transaction' do
@@ -22,6 +23,7 @@ RSpec.describe 'MonzoHookReceivers', type: :request do
       subject(:request) do
         post '/monzo_hook_receiver/transaction', params: data, headers: { 'CONTENT_TYPE' => 'application/json' }
       end
+
       let(:data) { file_fixture('monzo_webhook_data.json').read }
 
       it 'returns http success' do

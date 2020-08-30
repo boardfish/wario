@@ -11,47 +11,40 @@ VCR.configure do |config|
 end
 
 RSpec.describe MonzoTransaction, type: :model do
+  def fetch_monzo_record(_id)
+    Airrecord.table(
+      ENV.fetch('AIRTABLE_API_KEY'), ENV.fetch('AIRTABLE_BASE'), 'Transactions'
+    ).all(filter: "{Monzo ID} = '#{data['id']}'").first
+  end
+
   class AirtableRecord < OpenStruct
     def save
       Faraday.patch(
         "https://api.airtable.com/v0/#{ENV.fetch('AIRTABLE_BASE')}/Transactions",
-        body: { records: [self.to_h.slice("id", "fields")] }.to_json
+        body: { records: [to_h.slice('id', 'fields')] }.to_json
       )
     end
   end
+
+  subject(:monzo_transaction) { described_class.new(metadata: data) }
 
   before do
     ENV['AIRTABLE_API_KEY'] = 'AIRTABLE_API_KEY'
     ENV['AIRTABLE_BASE'] = 'appnzIqiDdK0Kew4f'
   end
 
-  let(:record) {
-    AirtableRecord.new(
-      id: "recI2lROdjAt0bz1m",
-      created_at: DateTime.parse("2015-09-04T14:28:40.000Z"),
-      updated_keys: [],
-      fields: {
-        "Monzo ID" => "tx_00008zjky19HyFLAzlUk7t",
-        "Amount" => -350,
-        "Category" => [],
-        "Month" => [],
-        "Created" => "2015-09-04T14:28:40.000Z"
-      }
-    )
-  }
-
   let(:data) { JSON.parse(file_fixture('monzo_webhook_data.json').read)['data'] }
-
-  subject(:monzo_transaction) { MonzoTransaction.new(metadata: data) }
 
   around { |example| VCR.use_cassette('airtable_transaction', record: :new_episodes, &example) }
 
   describe '#upsert_into_airtable' do
+    subject(:save_action) do
+      allow(monzo_transaction).to receive(:existing_record).and_return(record)
+      monzo_transaction.save
+    end
+
     context 'when a record does not exist' do
-      subject(:save_action) do
-        allow(monzo_transaction).to receive(:existing_record).and_return(nil)
-        monzo_transaction.save
-      end
+      let(:record) { nil }
 
       it 'sends a request to create a new record' do
         save_action
@@ -59,17 +52,27 @@ RSpec.describe MonzoTransaction, type: :model do
       end
 
       it 'sets the Month to the correct Month ID' do
-        save_action 
+        save_action
         expect(
-          Airrecord.table(ENV.fetch('AIRTABLE_API_KEY'), ENV.fetch('AIRTABLE_BASE'), 'Transactions').all(filter: "{Monzo ID} = '#{data['id']}'").first["Month"]
-        ).to eq(["recZtH0Ot7PjORaao"])
+          fetch_monzo_record(data['id'])['Month']
+        ).to eq(['recZtH0Ot7PjORaao'])
       end
     end
 
     context 'when a record exists' do
-      subject(:save_action) do
-        allow(monzo_transaction).to receive(:existing_record).and_return(record)
-        monzo_transaction.save
+      let(:record) do
+        AirtableRecord.new(
+          id: 'recI2lROdjAt0bz1m',
+          created_at: DateTime.parse('2015-09-04T14:28:40.000Z'),
+          updated_keys: [],
+          fields: {
+            'Monzo ID' => 'tx_00008zjky19HyFLAzlUk7t',
+            'Amount' => -350,
+            'Category' => [],
+            'Month' => [],
+            'Created' => '2015-09-04T14:28:40.000Z'
+          }
+        )
       end
 
       it 'sends a request to update the existing record' do
@@ -78,11 +81,7 @@ RSpec.describe MonzoTransaction, type: :model do
       end
 
       xit 'sets the Month to the correct Month ID' do
-        expect {
-          save_action
-        }.to change {
-          Airrecord.table(ENV.fetch('AIRTABLE_API_KEY'), ENV.fetch('AIRTABLE_BASE'), 'Transactions').all(filter: "{Monzo ID} = '#{data['id']}'").first["Month"]
-        }.from(nil).to(["recZtH0Ot7PjORaao"])
+        expect { save_action }.to change { fetch_monzo_record(data['id'])['Month'] }.from(nil).to(['recZtH0Ot7PjORaao'])
       end
     end
   end

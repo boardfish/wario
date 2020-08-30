@@ -37,7 +37,7 @@ class MonzoTransaction < ApplicationRecord
   end
 
   def get_airtable_month_total_record(date)
-    months_table.all(filter: "{Name} = '#{date.strftime("%B %Y")}'").first.id
+    months_table.all(filter: "{Name} = '#{date.strftime('%B %Y')}'").first.id
   end
 
   def transactions_table

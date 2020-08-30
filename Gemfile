@@ -36,6 +36,8 @@ group :development, :test do
   gem 'faraday'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
   gem 'simplecov'
   gem 'vcr'
   gem 'webmock'
